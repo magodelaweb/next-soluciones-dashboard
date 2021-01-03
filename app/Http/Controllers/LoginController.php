@@ -11,6 +11,12 @@ class LoginController extends Controller
     public function login(){
       return view('auth.login');
     }
+    public function register(){
+      return view('auth.register');
+    }
+    public function registrate(Request $request){
+      dd($request);die;
+    }
     public function authenticate(Request $request)
     {
         $remember=isset($request->remember);

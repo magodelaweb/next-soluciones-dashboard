@@ -77,9 +77,15 @@
       </li>
     </ul>
     <ul class="nav navbar-nav float-lg-right mai-user-nav">
-      <li class="dropdown nav-item"><a class="dropdown-toggle nav-link" href="#" data-toggle="dropdown" role="button" aria-expanded="false"><img src="{{asset('img/users/arturo2.jpg')}}" alt="Avatar"><span class="user-name">Arturo Martínez</span><span class="angle-down s7-angle-down"></span></a>
-        <div class="dropdown-menu" role="menu"><a class="dropdown-item" href="#"><span class="icon s7-home"></span>Mi Cuenta</a><a class="dropdown-item" href="pages-profile.html"><span class="icon s7-user"></span>Perfil</a><a class="dropdown-item" href="#"><span class="icon s7-cash"></span>Facturación</a><a class="dropdown-item" href="#"><span class="icon s7-tools"></span>Configuraciones</a><a class="dropdown-item" href="pages-login.html"><span class="icon s7-power"></span>Cerrar Sesión</a></div>
+      <li class="dropdown nav-item"><a class="dropdown-toggle nav-link" href="#" data-toggle="dropdown" role="button" aria-expanded="false"><img src="{{asset('storage/'.Auth::user()->foto)}}" alt="Avatar"><span class="user-name">{{Auth::user()->name}}</span><span class="angle-down s7-angle-down"></span></a>
+        <div class="dropdown-menu" role="menu"><a class="dropdown-item" href="#"><span class="icon s7-home"></span>Mi Cuenta</a><a class="dropdown-item" href="pages-profile.html"><span class="icon s7-user"></span>Perfil</a><a class="dropdown-item" href="#"><span class="icon s7-cash"></span>Facturación</a><a class="dropdown-item" href="#"><span class="icon s7-tools"></span>Configuraciones</a>
+          <a class="dropdown-item" href="#" onclick="logout(event);">
+            <span class="icon s7-power"></span>Cerrar Sesión
+          </a></div>
       </li>
     </ul>
   </div>
+  <form id="frmLogout" action="{{route('logout')}}" method="post">
+    @csrf
+  </form>
 </nav>

@@ -7,4 +7,8 @@
     //-initialize the javascript
     App.init();
   });
+  function logout(event){
+    event.preventDefault();
+    $("#frmLogout")[0].submit();
+  }
 </script>

@@ -53,7 +53,7 @@
           </form>
           <div class="out-links"><a href="#" onclick="event.preventDefault();">© 2021 Next Soluciones</a></div>
         </div>
-        <div class="col-md-6 user-message"><span class="splash-message text-left">Bienvenido a <br> Next Soluciones<br> Disfruta</span><span class="alternative-message text-right">¿No tienes una cuenta? <a href="#" onclick="event.preventDefault();">Regístrate</a></span></div>
+        <div class="col-md-6 user-message"><span class="splash-message text-left">Bienvenido a <br> Next Soluciones<br> Disfruta</span><span class="alternative-message text-right">¿Ya tienes una cuenta? <a href="{{route("login")}}">Inicia Sesión</a></span></div>
       </div>
     </div>
   </div>
@@ -70,3 +70,4 @@
     }
   </script>
 </body>
+@endsection

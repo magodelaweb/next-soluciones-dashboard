@@ -1,21 +1,22 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Auth;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
+use App\Http\Controllers\Controller;
+use App\Models\User;
 
 class LoginController extends Controller
 {
+    public function __construct()
+    {
+      $this->middleware('guest', ['except' => [
+            'logout'
+        ]]);
+    }
     public function login(){
       return view('auth.login');
-    }
-    public function register(){
-      return view('auth.register');
-    }
-    public function registrate(Request $request){
-      dd($request);die;
     }
     public function authenticate(Request $request)
     {
@@ -26,23 +27,19 @@ class LoginController extends Controller
           'active' => 1
         ];
         if (Auth::attempt($credentials, $remember)) {
-            //dd("Autenticado");die;
             $request->session()->regenerate();
             return redirect()->intended('dashboard');
         }
-        //dd("No Autenticado");die;
         return back()->withErrors([
             'email' => 'Error de autenticación.',
         ]);
     }
     public function logout(Request $request)
     {
+        //dd("llego al logout");die;
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
         return redirect('/');
     }
 }
-
-// $pw="Melilove1!";
-// $password=Hash::make($pw);

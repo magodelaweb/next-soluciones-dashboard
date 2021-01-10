@@ -10,22 +10,31 @@
             <div class="form-group">
               <div class="input-group">
                 <div class="input-group-prepend"><i class="icon s7-user"></i></div>
-                <input parsley-trigger="change" data-parsley-errors-container="#name-errors" data-parsley-required-message="Es necesario ingresar su nombre y apellido." class="form-control pl-3" id="name" name="name" type="text" placeholder="Nombre y Apellido" autocomplete="off" required>
+                <input parsley-trigger="change" data-parsley-errors-container="#name-errors" data-parsley-required-message="Es necesario ingresar su nombre y apellido." class="form-control pl-3" id="name" name="name" value="{{old('name')}}" type="text" placeholder="Nombre y Apellido" autocomplete="off" required>
               </div>
               <div id="name-errors"></div>
             </div>
             <div class="form-group">
               <div class="input-group">
                 <div class="input-group-prepend"><i class="icon s7-mail"></i></div>
-                <input parsley-trigger="change" data-parsley-errors-container="#email-errors" data-parsley-required-message="Es necesario ingresar un correo." data-parsley-type-message="Es necesario ingresar un correo válido." class="form-control pl-3" id="email" name="email" type="email" placeholder="Email" required>
+                <input parsley-trigger="change" data-parsley-errors-container="#email-errors" data-parsley-required-message="Es necesario ingresar un correo." data-parsley-type-message="Es necesario ingresar un correo válido." class="form-control pl-3" id="email" name="email" value="{{old('email')}}" type="email" placeholder="Email" required>
               </div>
               <div id="email-errors"></div>
+              @if ($errors->any())
+                  <div id="register-errors">
+                    <ul id="lstError" class="parsley-errors-list filled">
+                    @foreach ($errors->all() as $error)
+                      <li id="msgError" class="parsley-required">{{ $error }}</li>
+                    @endforeach
+                    </ul>
+                  </div>
+                @endif
             </div>
             <div class="form-group inline row">
               <div class="col-sm-6">
                 <div class="input-group">
                   <div class="input-group-prepend"><i class="icon s7-lock"></i></div>
-                  <input parsley-trigger="change" data-parsley-errors-container="#password-errors" data-parsley-required-message="Es necesario ingresar una clave." class="form-control pl-3" id="pass1" name="password" type="password" placeholder="Password" required>
+                  <input parsley-trigger="change" data-parsley-errors-container="#password-errors" data-parsley-required-message="Es necesario ingresar una clave." class="form-control pl-3" id="pass1" name="password_060120211035" value="" type="password" placeholder="Password" required>
                 </div>
                 <div id="password-errors"></div>
               </div>
@@ -33,7 +42,7 @@
                 <div class="input-group">
                   <div class="input-group-prepend"><i class="icon s7-lock"></i></div>
                   <input data-parsley-equalto="#pass1" data-parsley-errors-container="#confirm-errors" data-parsley-required-message="Es necesario volver a ingresar la clave."
-                  data-parsley-equalto-message="La clave ingresada debe ser la misma." class="form-control pl-3" type="password" name="confirm" placeholder="Confirm" required>
+                  data-parsley-equalto-message="La clave ingresada debe ser la misma." class="form-control pl-3" type="password" name="confirm" placeholder="Confirm" value="" required>
                 </div>
                 <div id="confirm-errors"></div>
               </div>
@@ -60,14 +69,16 @@
   @include('snippets.scripts')
   <script src="{{asset("assets/lib/parsley/parsley.min.js")}}" type="text/javascript"></script>
   <script type="text/javascript">
-    $(document).ready(function(){
-      $('form').parsley();
-    });
-    function submit(event){
-      event.preventDefault();
-      $("#btnSubmit").trigger('click');
-      // $("#frmRegister")[0].submit();
-    }
+  $(document).ready(function(){
+    $('form').parsley();
+    $("#register-errors").fadeOut(5000);
+    setTimeout(function(){ $("input[name=password_060120211035]").val(""); }, 1000);
+  });
+  function submit(event){
+    event.preventDefault();
+    $("#btnSubmit").trigger('click');
+    // $("#frmRegister")[0].submit();
+  }
   </script>
 </body>
 @endsection

@@ -9,7 +9,7 @@ class ActualizaTablaUsuarios extends Migration
     public function up()
     {
       Schema::table('users', function (Blueprint $table) {
-          $table->boolean('active')->after('password')->defaul(1);
+          $table->boolean('active')->after('password')->default(1);
       });
     }
     public function down()

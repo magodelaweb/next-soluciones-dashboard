@@ -14,6 +14,6 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::get('/forgot-password', [ResetController::class, 'reset'])->name('password.request');
 
 Route::middleware(['auth'])->group(function (){
-  Route::get('/dashboard', [DashboardController::class, 'index']);
-  Route::get('/', [DashboardController::class, 'index']);
+  Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+  Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 });

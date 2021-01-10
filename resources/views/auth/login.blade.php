@@ -11,7 +11,7 @@
             <div class="form-group">
               <div class="input-group">
                 <div class="input-group-prepend"><i class="icon s7-user"></i></div>
-                <input parsley-trigger="change" data-parsley-errors-container="#email-errors" data-parsley-required-message="Es necesario ingresar un correo." data-parsley-type-message="Es necesario ingresar un correo válido." class="form-control pl-3" name="email" id="username" type="email" placeholder="Username" autocomplete="off" required>
+                <input parsley-trigger="change" data-parsley-errors-container="#email-errors" data-parsley-required-message="Es necesario ingresar un correo." data-parsley-type-message="Es necesario ingresar un correo válido." class="form-control pl-3" name="email" value="{{old("email")}}" id="username" type="email" placeholder="Username" autocomplete="off" required>
               </div>
               <div id="email-errors">
               </div>
@@ -28,7 +28,7 @@
             <div class="form-group">
               <div class="input-group">
                 <div class="input-group-prepend"><i class="icon s7-lock"></i></div>
-                <input parsley-trigger="change" data-parsley-errors-container="#password-errors" data-parsley-required-message="Es necesario ingresar una clave." class="form-control pl-3" name="password" id="password" type="password" placeholder="Password" required>
+                <input parsley-trigger="change" data-parsley-errors-container="#password-errors" data-parsley-required-message="Es necesario ingresar una clave." class="form-control pl-3" name="password_060120211043" id="password" type="password" placeholder="Password" required>
               </div>
               <div id="password-errors"></div>
             </div>
@@ -54,6 +54,7 @@
     $(document).ready(function(){
       $('form').parsley();
       $("#login-errors").fadeOut(1500);
+      setTimeout(function(){ $("input[name=password_060120211043]").val(""); }, 1000); 
     });
     function submit(event){
       event.preventDefault();

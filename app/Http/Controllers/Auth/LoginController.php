@@ -23,7 +23,7 @@ class LoginController extends Controller
         $remember=isset($request->remember);
         $credentials = [
           'email' => $request->email,
-          'password' => $request->password,
+          'password' => $request->password_060120211043,
           'active' => 1
         ];
         if (Auth::attempt($credentials, $remember)) {
@@ -32,7 +32,7 @@ class LoginController extends Controller
         }
         return back()->withErrors([
             'email' => 'Error de autenticación.',
-        ]);
+        ])->withInput($request->except('password_060120211043'));
     }
     public function logout(Request $request)
     {

@@ -24,6 +24,11 @@
                   </ul>
                 </div>
               @endif
+              @if (session('status'))
+                  <div id="msg" class="alert alert-success pl-2 py-3">
+                      {{ session('status') }}
+                  </div>
+              @endif
             </div>
             <div class="form-group">
               <div class="input-group">
@@ -54,7 +59,7 @@
     $(document).ready(function(){
       $('form').parsley();
       $("#login-errors").fadeOut(1500);
-      setTimeout(function(){ $("input[name=password_060120211043]").val(""); }, 1000); 
+      setTimeout(function(){ $("input[name=password_060120211043]").val(""); }, 1000);
     });
     function submit(event){
       event.preventDefault();

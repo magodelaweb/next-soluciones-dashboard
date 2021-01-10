@@ -8,4 +8,6 @@
   <link rel="stylesheet" type="text/css" href="{{asset("assets/lib/stroke-7/style.css")}}"/>
   <link rel="stylesheet" type="text/css" href="{{asset("assets/lib/perfect-scrollbar/css/perfect-scrollbar.css")}}"/>
   <link rel="stylesheet" href="{{asset("css/app.css")}}" type="text/css"/>
+  <link rel="stylesheet" href="{{asset("css/ns-system.css")}}" type="text/css"/>
+  @yield('estilos')
 </head>

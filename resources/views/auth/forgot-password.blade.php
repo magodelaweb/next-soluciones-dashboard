@@ -10,7 +10,7 @@
             <div class="form-group">
               <div class="input-group">
                 <div class="input-group-prepend"><i class="icon s7-mail"></i></div>
-                <input class="form-control" type="text" placeholder="Your Email">
+                <input class="form-control" type="text" placeholder="Tu correo">
               </div>
             </div>
             <p class="contact mt-4">No recuerdas tu correo? <a href="#" onclick="event.preventDefault();">Contacta a soporte</a>.</p>

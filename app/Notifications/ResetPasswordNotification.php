@@ -22,9 +22,10 @@ class ResetPasswordNotification extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
+                    ->subject('Notificación de Reseteo de Clave')
                     ->greeting('¡Hola!')
                     ->line('Recibió este correo electrónico porque recibimos una solicitud de restablecimiento de contraseña para su cuenta.')
-                    ->action('Resetear Password', $this->url)
+                    ->action('Resetear Clave', $this->url)
                     ->line('Este enlace de restablecimiento de contraseña caducará en 60 minutos.')
                     ->line('Si no solicitó un restablecimiento de contraseña, no se requiere ninguna otra acción.');
     }

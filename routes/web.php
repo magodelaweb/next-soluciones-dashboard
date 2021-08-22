@@ -18,5 +18,5 @@ Route::post('/reset-password', [ResetController::class, 'update'])->name('passwo
 
 Route::middleware(['auth'])->group(function (){
   Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-  Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+  Route::get('/', [DashboardController::class, 'index'])->name('root');
 });

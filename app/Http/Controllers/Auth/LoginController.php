@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Models\VirtualUser;
 
 class LoginController extends Controller
 {
@@ -23,16 +24,15 @@ class LoginController extends Controller
         $remember=isset($request->remember);
         $credentials = [
           'email' => $request->email,
-          'password' => $request->password_060120211043,
-          'active' => 1
-        ];
+          'password' => $request->password,
+        ];   
         if (Auth::attempt($credentials, $remember)) {
             $request->session()->regenerate();
             return redirect()->intended('dashboard');
         }
         return back()->withErrors([
             'email' => 'Error de autenticación.',
-        ])->withInput($request->except('password_060120211043'));
+        ])->withInput($request->except('password'));
     }
     public function logout(Request $request)
     {

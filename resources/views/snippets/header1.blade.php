@@ -1,14 +1,14 @@
 <nav class="navbar navbar-expand navbar-dark mai-top-header">
   <div class="container"><a class="navbar-brand" href="#"></a>
     <ul class="nav navbar-nav mai-top-nav">
-      <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
-      <li class="nav-item"><a class="nav-link" href="#">Nosotros</a></li>
+      <li class="nav-item"><a class="nav-link" href="{{route("root")}}">Inicio</a></li>
+      {{-- <li class="nav-item"><a class="nav-link" href="#">Nosotros</a></li>
       <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-expanded="false">Servicios<span class="angle-down s7-angle-down"></span></a>
         <div class="dropdown-menu" role="menu"><a class="dropdown-item" href="#">Hosting</a><a class="dropdown-item" href="#">Correos</a><a class="dropdown-item" href="#">Páginas Web</a><a class="dropdown-item" href="#">Computadoras y Accesorios</a><a class="dropdown-item" href="#">Exportar Reporte</a></div>
       </li>
-      <li class="nav-item"><a class="nav-link" href="#">Ayuda</a></li>
+      <li class="nav-item"><a class="nav-link" href="#">Ayuda</a></li> --}}
     </ul>
-    <ul class="navbar-nav float-lg-right mai-icons-nav">
+    {{-- <ul class="navbar-nav float-lg-right mai-icons-nav">
       <li class="dropdown nav-item mai-notifications"><a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-expanded="false"><span class="icon s7-bell"></span><span class="indicator"></span></a>
         <ul class="dropdown-menu">
           <li>
@@ -75,10 +75,14 @@
           </li>
         </ul>
       </li>
-    </ul>
+    </ul> --}}
     <ul class="nav navbar-nav float-lg-right mai-user-nav">
-      <li class="dropdown nav-item"><a class="dropdown-toggle nav-link" href="#" data-toggle="dropdown" role="button" aria-expanded="false"><img src="{{asset('storage/'.Auth::user()->foto)}}" alt="Avatar"><span class="user-name">{{Auth::user()->name}}</span><span class="angle-down s7-angle-down"></span></a>
-        <div class="dropdown-menu" role="menu"><a class="dropdown-item" href="#"><span class="icon s7-home"></span>Mi Cuenta</a><a class="dropdown-item" href="pages-profile.html"><span class="icon s7-user"></span>Perfil</a><a class="dropdown-item" href="#"><span class="icon s7-cash"></span>Facturación</a><a class="dropdown-item" href="#"><span class="icon s7-tools"></span>Configuraciones</a>
+      <li class="dropdown nav-item"><a class="dropdown-toggle nav-link" href="#" data-toggle="dropdown" role="button" aria-expanded="false"><img src="{{asset('storage/default.jpg')}}" alt="Avatar"><span class="user-name">{{Auth::user()->email}}</span><span class="angle-down s7-angle-down"></span></a>
+        <div class="dropdown-menu" role="menu">
+          {{-- <a class="dropdown-item" href="#"><span class="icon s7-home"></span>Mi Cuenta</a>
+          <a class="dropdown-item" href="pages-profile.html"><span class="icon s7-user"></span>Perfil</a>
+          <a class="dropdown-item" href="#"><span class="icon s7-cash"></span>Facturación</a>
+          <a class="dropdown-item" href="#"><span class="icon s7-tools"></span>Configuraciones</a> --}}
           <a class="dropdown-item" href="#" onclick="logout(event);">
             <span class="icon s7-power"></span>Cerrar Sesión
           </a></div>

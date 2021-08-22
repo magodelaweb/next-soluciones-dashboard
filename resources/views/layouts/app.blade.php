@@ -4,7 +4,7 @@
   <body>
     @include('snippets.header1')
     <div class="mai-wrapper">
-      {{-- @yield('content') --}}
+      @yield('content')
     </div>
     @include('snippets.scripts')
   </body>

@@ -3,11 +3,13 @@
   @include('snippets.nav')
   <div class="main-content container">
     <div class="row page-head">
-      <div class="col-md-4 page-head-heading">
+      {{-- <div class="col-md-4 page-head-heading">
         <h1>Page Header</h1>
-      </div>
-      <div class="col-md-8 page-head-desc">
-        <h3>Morbi purus nisi, porttitor a sodales at, consectetur sit auctor<br> efficitur nisi. Aliquam erat volutpat. Morbi lobortis odio sem<br> lieto justo</h3>
+      </div> --}}
+      <div class="col-md-12 page-head">
+        <h3>
+        Lógica de cambio de contraseña</h3>
+        <a href="https://accounts.zoho.com/home#security/security_pwd" target="_blank">Link de cambio de contraseña en Zoho</a>
       </div>
     </div>
   </div>
